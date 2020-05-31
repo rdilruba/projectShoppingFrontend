@@ -1,20 +1,16 @@
-import React from 'react'
-import "./Menu.scss"
+import React from "react";
+import "./Menu.scss";
 
 function Menu() {
-    return (
-      <div className="menu">
-          <div className="menu-button-container" style={{}}>
-              <div className="menu-button"> Chocolate</div>
-              <div style={{width:"20%", height:"100%"}}> Clothing</div>
-              <div style={{width:"20%", height:"100%"}}> Technology</div>
-              <div style={{width:"20%", height:"100%"}}> Music</div>
-              <div style={{}}> Furniture</div>
+  return (
+    <div className="menu">
+      <div className="menu-button"> Chocolate</div>
+      <div className="menu-button"> Clothing</div>
+      <div className="menu-button"> Technology</div>
+      <div className="menu-button"> Music</div>
+      <div className="menu-button"> Furniture</div>
+    </div>
+  );
+}
 
-
-          </div>
-      </div>
-    );
-  }
-  
-  export default Menu;
+export default Menu;

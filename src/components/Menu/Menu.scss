@@ -1,22 +1,30 @@
 .menu {
-    margin-top: 30;
-    height: 100px;
-    background-color: #f0e6ef;
-    
-    border-top: 12px solid rgb(128, 128, 223);
-  }
+  margin-top: 30;
+  height: 100px;
+  background-color: #f0e6ef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  .menu-button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 60%;
-    margin: auto;
-  }
+.menu-button {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.menu-button:hover {
+  letter-spacing: 2px;
+  color: rgb(128, 128, 223);
+  cursor: pointer;
+}
 
-  .menu-button {
-    align-items: center;
-    width:20%;
-    height:100%;
-  }
+.menu-button:focus {
+  border-bottom: 1px solid rgb(128, 128, 223);
+  color: rgb(128, 128, 223);
+}
