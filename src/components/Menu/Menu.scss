@@ -1,11 +1,14 @@
 .menu {
-  margin-top: 30;
+  margin-top: 40px;
   height: 100px;
   background-color: #f0e6ef;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  -webkit-box-shadow: -10px -27px 43px -31px rgba(92,76,92,0.29);
+  -moz-box-shadow: -10px -27px 43px -31px rgba(92,76,92,0.29);
+  box-shadow: -10px -27px 43px -31px rgba(117, 105, 117, 0.29);
 }
 
 .menu-button {
@@ -16,11 +19,15 @@
   align-items: center;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  transition: 0.2s;
 }
 .menu-button:hover {
-  letter-spacing: 2px;
-  color: rgb(128, 128, 223);
+  font-weight: normal;
+  border-radius: 3px;
+  letter-spacing: 4px;
+  background-color: #ece1ea;
+  text-shadow: hue($color: black);
   cursor: pointer;
 }
 
