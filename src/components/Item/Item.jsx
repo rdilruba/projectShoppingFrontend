@@ -1,12 +1,39 @@
 import React from "react";
+import { Card, Button } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./Item.scss";
+
+const { Meta } = Card;
+const style = { width: "80%", padding: 20, marginLeft: 30 };
 
 function Item() {
   return (
     <div className="Item">
-      <header className="Item-header">
-        <p>ITEM</p>
-      </header>
+      <Card
+        hoverable
+        style={style}
+        cover={
+          <img
+            alt="example"
+            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          />
+        }
+      >
+        <Meta
+          style={{ display: "flex", justifyContent: "center" }}
+          title="Europe Street beat"
+          description="www.instagram.com"
+        />
+        <div
+          style={{
+            marginTop: 20,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button icon={<ShoppingCartOutlined />}>Add to Cart</Button>
+        </div>
+      </Card>
     </div>
   );
 }
