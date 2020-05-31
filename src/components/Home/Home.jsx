@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.scss";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import Layout from "../Layout/Layout";
 
 function Home() {
@@ -10,7 +9,6 @@ function Home() {
       <header className="home-header"></header>
       <Header></Header>
       <Layout></Layout>
-      <Footer></Footer>
     </div>
   );
 }
