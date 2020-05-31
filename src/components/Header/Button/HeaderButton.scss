@@ -1,0 +1,18 @@
+.header-button  {
+    width: 33%;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+}
+
+.header-button:hover {
+    letter-spacing: 6px;
+    color: rgb(128, 128, 223);
+}
+
+.header-button:focus {
+    border-bottom: 1px solid rgb(128, 128, 223);
+    color: rgb(128, 128, 223);
+}

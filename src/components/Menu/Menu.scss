@@ -1,0 +1,22 @@
+.menu {
+    margin-top: 30;
+    height: 100px;
+    background-color: #f0e6ef;
+    
+    border-top: 12px solid rgb(128, 128, 223);
+  }
+
+  .menu-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+  }
+
+  .menu-button {
+    align-items: center;
+    width:20%;
+    height:100%;
+  }
