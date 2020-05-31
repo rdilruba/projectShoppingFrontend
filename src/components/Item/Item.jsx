@@ -15,7 +15,7 @@ function Item() {
         cover={
           <img
             alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+            src="https://d23ic3f0nw4szy.cloudfront.net/marketpaketi/products/548702/ulker-cikolata-sutlu-tablet-80-gr-a029e5f3b8ea57eb594e4496fdaba3a3.jpg"
           />
         }
       >
