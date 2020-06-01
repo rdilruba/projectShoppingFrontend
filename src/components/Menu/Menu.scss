@@ -1,19 +1,16 @@
 .menu {
-  margin-top: 40px;
   height: 100px;
   background-color: #f0e6ef;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  -webkit-box-shadow: -10px -27px 43px -31px rgba(92,76,92,0.29);
-  -moz-box-shadow: -10px -27px 43px -31px rgba(92,76,92,0.29);
-  box-shadow: -10px -27px 43px -31px rgba(117, 105, 117, 0.29);
 }
 
 .menu-button {
   width: 15%;
   height: 100%;
+  background-color: #f0e6ef;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +18,8 @@
   font-size: 18px;
   letter-spacing: 3px;
   transition: 0.2s;
+  border: none;
+  outline: none;
 }
 .menu-button:hover {
   font-weight: normal;
@@ -34,4 +33,10 @@
 .menu-button:focus {
   border-bottom: 1px solid rgb(128, 128, 223);
   color: rgb(128, 128, 223);
+  -webkit-box-shadow: 10px 27px 43px -31px rgba(117, 26, 117, 0.678),
+    -10px -27px 43px -31px rgba(117, 26, 117, 0.678);
+  -moz-box-shadow: 10px 27px 43px -31px rgba(117, 26, 117, 0.678),
+    -10px -27px 43px -31px rgba(117, 26, 117, 0.678);
+  box-shadow: 10px 27px 43px -31px rgba(117, 26, 117, 0.212),
+    -10px -27px 43px -31px rgba(117, 26, 117, 0.151);
 }

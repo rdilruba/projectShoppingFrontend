@@ -4,11 +4,11 @@ import "./Menu.scss";
 function Menu() {
   return (
     <div className="menu">
-      <div className="menu-button"> Chocolate</div>
-      <div className="menu-button"> Clothing</div>
-      <div className="menu-button"> Technology</div>
-      <div className="menu-button"> Music</div>
-      <div className="menu-button"> Furniture</div>
+      <button className="menu-button">Chocolate</button>
+      <button className="menu-button"> Clothing</button>
+      <button className="menu-button"> Technology</button>
+      <button className="menu-button"> Music</button>
+      <button className="menu-button"> Furniture</button>
     </div>
   );
 }
