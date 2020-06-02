@@ -5,16 +5,15 @@ class Cart extends Component {
   render() {
     const { handleOk, handleCancel, title, content } = this.props;
     return (
-      <div>
+      <div style={{margin:"auto", textAlign: "center"}}>
         <Modal
           visible={true}
           title={title}
           onOk={handleOk}
           onCancel={handleCancel}
+          footer={null}
         >
-          <p>{content}</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          {content}
         </Modal>
       </div>
     );

@@ -19,8 +19,8 @@ class Home extends React.Component {
   changeCategory(categoryId) {
     let connectionString =
       "https://shopper496.herokuapp.com/products" +
-      (categoryId ? "/category/" + categoryId : "");
-    console.log(connectionString);
+      ((categoryId != null) ? "/category/" + categoryId : "");
+    
     axios.get(connectionString).then((response) => {
       this.setState({
         products: response.data,
@@ -32,6 +32,7 @@ class Home extends React.Component {
     this.changeCategory(null);
   }
   render() {
+    console.log(this.state.products)
     return (
       <div className="home-all">
         <header className="home-header"></header>
