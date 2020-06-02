@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Divider, Row, Col } from "antd";
+import { Divider, Row, Col, Drawer } from "antd";
 
 import axios from "axios";
 import Item from "../Item/Item";
+import MiniBasket from '../MiniBasket/MiniBasket'
 import "./Layout.scss";
 
 class Layout extends Component {
@@ -10,17 +11,26 @@ class Layout extends Component {
     super(props);
 
     this.state = {
+      showMiniBasket: false,
       products: [],
       basketList: [],
     };
+
   }
   addBasket = (id) => {
+
     console.log("item added");
     this.setState((state) => ({
+      showMiniBasket: true,
       basketList: [...state.basketList, id],
     }));
   };
 
+  onClose = () => {
+    this.setState({
+      showMiniBasket: false,
+    });
+  };
   componentDidMount() {
     axios.get("https://shopper496.herokuapp.com/products").then(
       (response) => {
@@ -38,6 +48,19 @@ class Layout extends Component {
     const { products } = this.props;
     return (
       <div className="layout-all">
+        <Drawer
+          title="Your Basket"
+          placement={'right'}
+          closable={true}
+          maskClosable={true}
+          visible={this.state.showMiniBasket}
+          onClose={this.onClose}
+          key={'rightDrawer'}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Drawer>
         <Divider
           orientation="center"
           style={{ color: "#444", fontWeight: "normal" }}
