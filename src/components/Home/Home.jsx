@@ -19,7 +19,7 @@ class Home extends React.Component {
   changeCategory(categoryId) {
     let connectionString =
       "https://shopper496.herokuapp.com/products" +
-      (categoryId ? "/" + categoryId : "");
+      (categoryId ? "/category/" + categoryId : "");
     console.log(connectionString);
     axios.get(connectionString).then((response) => {
       this.setState({
