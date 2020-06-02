@@ -1,17 +1,27 @@
 .header-button {
-  width: 33%;
+  width: 50%;
   height: 100%;
   border: none;
   font-size: 20px;
   font-weight: lighter;
   letter-spacing: 5px;
+  outline: none;
+  border: none;
 }
 
 .header-button:hover {
   color: black;
+  outline: none;
+  border: none;
 }
 
 .header-button:focus {
   color: black;
-  font-weight: normal;
+  outline: none;
+  border: none;
+}
+
+.header-button:active {
+  outline: none;
+  border: none;
 }

@@ -7,33 +7,19 @@ const { Meta } = Card;
 const style = { width: "80%", padding: 20, marginLeft: 30 };
 
 class Item extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
-
-  componentDidMount() {
-
-  }
-
   render() {
+    const { id, name, imgUrl } = this.props.product;
+    const { addBasket } = this.props;
     return (
       <div className="Item">
         <Card
           hoverable
           style={style}
-          cover={
-            <img
-              alt="example"
-              src={this.props.product.imgUrl}
-            />
-          }
+          cover={<img alt="example" src={imgUrl} />}
         >
           <Meta
             style={{ display: "flex", justifyContent: "center" }}
-            title={this.props.product.name}
+            title={name}
             description="www.instagram.com"
           />
           <div
@@ -43,11 +29,16 @@ class Item extends React.Component {
               justifyContent: "center",
             }}
           >
-            <Button icon={<ShoppingCartOutlined />}>Add to Cart</Button>
+            <Button
+              icon={<ShoppingCartOutlined />}
+              onClick={() => addBasket(id)}
+            >
+              Add to Cart
+            </Button>
           </div>
         </Card>
       </div>
-    )
+    );
   }
 }
 
