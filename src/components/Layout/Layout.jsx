@@ -1,7 +1,6 @@
 import React from "react";
 import { Divider, Row, Col } from "antd";
 
-import axios from 'axios'
 import Item from "../Item/Item";
 import "./Layout.scss";
 
@@ -14,17 +13,8 @@ class Layout extends React.Component {
     }
   }
 
-  componentDidMount() {
-    axios.get('https://shopper496.herokuapp.com/products')
-      .then((response) => {
-        this.setState({
-          products: response.data
-        })
-      }, (error) => {
-        console.log(error);
-      });
-  }
   render() {
+    const { products } = this.props
     return (
       <div className="layout-all">
         <Divider
@@ -33,15 +23,18 @@ class Layout extends React.Component {
         >
           Ürünler
       </Divider>
-        <Row gutter={[48, 48]}>
-          {
-            this.state.products.map((product) =>
-              <Col className="gutter-row" span={6}>
-                <Item product={product}></Item>
-              </Col>
-            )
-          }
-        </Row>
+        {
+          
+          <Row gutter={[48, 48]}>
+            {
+              products.map((product) =>
+                <Col className="gutter-row" span={6} key={product.name}>
+                  <Item product={product}></Item>
+                </Col>
+              )
+            }
+          </Row>
+        }
       </div>
     )
   }
