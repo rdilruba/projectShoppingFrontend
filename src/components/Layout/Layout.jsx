@@ -57,9 +57,9 @@ class Layout extends Component {
           onClose={this.onClose}
           key={'rightDrawer'}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          {
+            this.state.basketList.map((product) => <div> {product} </div>)
+          }
         </Drawer>
         <Divider
           orientation="center"
