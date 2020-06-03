@@ -46,7 +46,19 @@ class Header extends React.Component {
       visibleBasket: false,
     });
   };
-
+  handleCancelBuy = (user) => {
+    if (user) {
+      this.setState({
+        visibleAuth: false,
+        visibleBasket: false,
+      });
+    } else {
+      message.info("You should loggin first.");
+      setTimeout(function () {
+        window.location.reload();
+      }, 1000);
+    }
+  };
   calcCost = (product, totalCost) => {
     totalCost += product.price * product.soldCount;
     return totalCost;
@@ -63,6 +75,7 @@ class Header extends React.Component {
   render() {
     const { listBasket } = this.props;
     let totalCost = 0;
+    let totalNum = 0;
     return (
       <div className="header-navbar">
         <div
@@ -74,23 +87,21 @@ class Header extends React.Component {
             fontFamily: "Playfair Display, serif",
           }}
         >
-          <button
-            onClick={() => window.location.reload(false)}
-            className="home-button"
-          >
-            <img
-              style={{ marginRight: 20 }}
-              height="100px"
-              src="logo.png"
-              alt="logo"
-            ></img>
-            SHOPPER
-          </button>
+          <img
+            style={{ marginRight: 20 }}
+            height="100px"
+            src="logo.png"
+            alt="logo"
+          ></img>
+          SHOPPER
         </div>
         <div hidden>
           {listBasket.map(
             (product) => (totalCost = this.calcCost(product, totalCost))
           )}
+        </div>
+        <div hidden>
+          {listBasket.map((product) => (totalNum += product.soldCount))}
         </div>
         <div className="header-button-container">
           <Modal
@@ -111,7 +122,9 @@ class Header extends React.Component {
                     <Button
                       key="Buy"
                       type="primary"
-                      onClick={this.handleCancel}
+                      onClick={this.handleCancelBuy(
+                        localStorage.getItem("ShopperUser")
+                      )}
                     >
                       Buy
                     </Button>
@@ -163,6 +176,7 @@ class Header extends React.Component {
             icon={<ShoppingCartOutlined style={{ marginRight: 18 }} />}
             onClick={() => this.openBasket()}
           >
+            <span className="circle">{totalNum}</span>
             BASKET
           </Button>
         </div>
