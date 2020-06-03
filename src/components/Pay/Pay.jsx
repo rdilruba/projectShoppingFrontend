@@ -65,7 +65,7 @@ class Pay extends Component {
           <Header listBasket={listBasket}></Header>
         </div>
         <div>
-          <div style={{width:"30%", float: "left"}}>
+          <div style={{width:"30%", float: "left", padding:20, borderRight: '2px solid lightgrey'}}>
             {
               listBasket.map((product) => (
                 <Row
