@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Modal, message, Row } from "antd";
 import {
   UserOutlined,
@@ -101,9 +102,20 @@ class Header extends React.Component {
               this.state.visibleBasket && listBasket.length > 0 ? (
                 <div>
                   <h3>Total Cost: {totalCost} $</h3>
-                  <Button key="Buy" type="primary" onClick={this.handleCancel}>
-                    Buy
-                  </Button>
+                  <Link
+                    to={{
+                      pathname: "/pay",
+                      listBasket: listBasket,
+                    }}
+                  >
+                    <Button
+                      key="Buy"
+                      type="primary"
+                      onClick={this.handleCancel}
+                    >
+                      Buy
+                    </Button>
+                  </Link>
                 </div>
               ) : null
             }

@@ -3,15 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "antd/dist/antd.css";
 import App from "./App";
-import BasketItem from "./components/BasketItem/BasketItem";
+import Pay from "./components/Pay/Pay";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 const routing = (
   <Router>
     <div>
       <Route exact path="/" component={App} />
-      <Route path="/basket" component={BasketItem} />
-      <Route path="/login" component={BasketItem} />
+      <Route path="/pay" component={Pay} />
     </div>
   </Router>
 );
