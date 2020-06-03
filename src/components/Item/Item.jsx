@@ -8,7 +8,7 @@ const style = { width: "80%", padding: 20, marginLeft: 30, cursor: "default" };
 
 class Item extends React.Component {
   render() {
-    const { id, name, imgUrl, price } = this.props.product;
+    const { name, imgUrl, price } = this.props.product;
     const { addBasket } = this.props;
     return (
       <div className="Item">
@@ -48,7 +48,7 @@ class Item extends React.Component {
               icon={<ShoppingCartOutlined />}
               onClick={() => addBasket(this.props.product)}
             >
-              Add to Cart
+              Add to Basket
             </Button>
           </div>
         </Card>

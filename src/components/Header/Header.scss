@@ -7,10 +7,43 @@
   justify-content: flex-end;
   align-items: center;
 }
+.home-button {
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
 
 .header-button-container {
   display: flex;
   margin-right: 80px;
   width: 34%;
   height: 100%;
+}
+.header-button {
+  width: 50%;
+  height: 100%;
+  border: none;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  outline: none;
+  border: none;
+}
+
+.header-button:hover {
+  color: black;
+  outline: none;
+  border: none;
+}
+
+.header-button:focus {
+  color: black;
+  outline: none;
+  border: none;
+}
+
+.header-button:active {
+  outline: none;
+  border: none;
 }

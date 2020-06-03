@@ -4,7 +4,7 @@ import "./index.css";
 import "antd/dist/antd.css";
 import App from "./App";
 import BasketItem from "./components/BasketItem/BasketItem";
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 const routing = (
   <Router>

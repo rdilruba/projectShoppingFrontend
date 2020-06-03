@@ -5,14 +5,14 @@ import "./Layout.scss";
 
 class Layout extends Component {
   render() {
-    const { products, addBasket } = this.props;
+    const { products, addBasket, category } = this.props;
     return (
       <div className="layout-all">
         <Divider
           orientation="center"
           style={{ color: "#444", fontWeight: "normal" }}
         >
-          Ürünler
+          {category ? category : "All"}
         </Divider>
         {
           <Row gutter={[48, 48]}>

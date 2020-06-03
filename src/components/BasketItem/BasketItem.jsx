@@ -1,9 +1,8 @@
 import React from "react";
-import { Card, Avatar } from "antd";
+import { Card, Col } from "antd";
 import "./BasketItem.scss";
 
-const { Meta } = Card;
-const style = { width: "80%", padding: 20, marginLeft: 30 };
+const style = { width: "450px", marginBottom: "20px" };
 
 class BasketItem extends React.Component {
   render() {
@@ -11,14 +10,24 @@ class BasketItem extends React.Component {
 
     return (
       <div className="Item">
-        <Card style={style}>
-          {product ? (
-            <Meta
-              avatar={<Avatar src={product.imgUrl} />}
-              title={product.name}
-            />
-          ) : null}
-        </Card>
+        <Col className="gutter-row" span={4}>
+          <Card style={style}>
+            <div className="basket-item">
+              <img
+                style={{ maxHeight: 200 }}
+                alt="example"
+                src={product.imgUrl}
+              />
+              {product ? (
+                <div className="basket-item-text">
+                  <h3>{product.name}</h3>
+                  <h4>Quantity: {product.soldCount}</h4>
+                  <h4>Cost: {product.soldCount * product.price}$</h4>
+                </div>
+              ) : null}
+            </div>
+          </Card>
+        </Col>
       </div>
     );
   }

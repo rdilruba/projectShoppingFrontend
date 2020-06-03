@@ -1,19 +1,18 @@
 import React from "react";
+import { Button, Modal, message, Row } from "antd";
 import {
   UserOutlined,
   ShoppingCartOutlined,
   UserDeleteOutlined,
 } from "@ant-design/icons";
+
 import "./Header.scss";
 import BasketItem from "../BasketItem/BasketItem";
-
 import Login from "../LoginView/Login";
-import { Button, Modal, message } from "antd";
-import "../Header/Button/HeaderButton.scss";
 
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       visibleAuth: false,
@@ -47,15 +46,22 @@ class Header extends React.Component {
     });
   };
 
+  calcCost = (product, totalCost) => {
+    totalCost += product.price * product.soldCount;
+    return totalCost;
+  };
+
   logUserOut() {
     localStorage.removeItem("ShopperAuth");
     localStorage.removeItem("ShopperUser");
     message.info("You have logged out successfully.");
     setTimeout(function () {
       window.location.reload();
-    }, 1500);
+    }, 1000);
   }
   render() {
+    const { listBasket } = this.props;
+    let totalCost = 0;
     return (
       <div className="header-navbar">
         <div
@@ -67,13 +73,23 @@ class Header extends React.Component {
             fontFamily: "Playfair Display, serif",
           }}
         >
-          <img
-            style={{ marginRight: 20 }}
-            height="100px"
-            src="logo.png"
-            alt="logo"
-          ></img>
-          SHOPPER
+          <button
+            onClick={() => window.location.reload(false)}
+            className="home-button"
+          >
+            <img
+              style={{ marginRight: 20 }}
+              height="100px"
+              src="logo.png"
+              alt="logo"
+            ></img>
+            SHOPPER
+          </button>
+        </div>
+        <div hidden>
+          {listBasket.map(
+            (product) => (totalCost = this.calcCost(product, totalCost))
+          )}
         </div>
         <div className="header-button-container">
           <Modal
@@ -81,12 +97,35 @@ class Header extends React.Component {
             title={this.state.visibleAuth ? "LOGIN - REGISTER" : "BASKET"}
             onOk={this.handleOk}
             onCancel={this.handleCancel}
-            footer={null}
+            footer={
+              this.state.visibleBasket && listBasket.length > 0 ? (
+                <div>
+                  <h3>Total Cost: {totalCost} $</h3>
+                  <Button key="Buy" type="primary" onClick={this.handleCancel}>
+                    Buy
+                  </Button>
+                </div>
+              ) : null
+            }
+            width={600}
           >
             {this.state.visibleAuth ? (
               <Login handleOk={this.handleOk}></Login>
-            ) : this.state.visibleBasket ? (
-              <BasketItem></BasketItem>
+            ) : null}
+            {this.state.visibleBasket
+              ? listBasket.map((product) => (
+                  <Row
+                    style={{ display: "flex", justifyContent: "center" }}
+                    key={product.id}
+                  >
+                    <BasketItem product={product}></BasketItem>
+                  </Row>
+                ))
+              : null}
+            {this.state.visibleBasket && listBasket.length === 0 ? (
+              <Row>
+                <h3>There is no item</h3>
+              </Row>
             ) : null}
           </Modal>
 

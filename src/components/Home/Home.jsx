@@ -12,18 +12,25 @@ class Home extends React.Component {
     this.state = {
       products: [],
       basketList: [],
+      category: null,
     };
 
     this.changeCategory = this.changeCategory.bind(this);
   }
   addBasket = (product) => {
-    console.log("item added soldCount=0");
-
-    this.setState((state) => ({
-      basketList: [...state.basketList, product],
-    }));
+    const index = this.state.basketList.indexOf(product);
+    if (index < 0) {
+      product.soldCount += 1;
+      this.setState((state) => ({
+        basketList: [...state.basketList, product],
+      }));
+    } else {
+      const newList = this.state.basketList.slice();
+      newList[index].soldCount += 1;
+      this.setState({ basketList: newList });
+    }
   };
-  changeCategory(categoryId) {
+  changeCategory(categoryId, category) {
     let connectionString =
       "https://shopper496.herokuapp.com/products" +
       (categoryId != null ? "/category/" + categoryId : "");
@@ -31,6 +38,7 @@ class Home extends React.Component {
     axios.get(connectionString).then((response) => {
       this.setState({
         products: response.data,
+        category: category,
       });
     });
   }
@@ -47,6 +55,7 @@ class Home extends React.Component {
         <Layout
           addBasket={this.addBasket}
           products={this.state.products}
+          category={this.state.category}
         ></Layout>
       </div>
     );
